@@ -14,10 +14,11 @@ public interface ProductRepository extends JpaRepository<Product, Long>{
 	
 	List<Product> findAll();
 	
-	List<Product> findAllByCategories(Category category);
+//	List<Category> findAllByProducts(Product product);
 	
 	List<Product> findByCategoriesNotContains(Product product);
 	
 	List<Product> findByCategoriesContains(Product product);
-
+	
+	
 }

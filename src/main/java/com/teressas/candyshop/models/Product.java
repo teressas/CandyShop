@@ -1,9 +1,5 @@
 package com.teressas.candyshop.models;
 
-
-
-
-
 import java.util.Date;
 import java.util.List;
 
@@ -73,7 +69,6 @@ public class Product {
 	public Product() {
 	}
 
-
 	public Product(String name, Double price, Double weight, String description, String imageName,
 			List<Category> categories) {
 		this.name = name;
@@ -84,91 +79,73 @@ public class Product {
 		this.categories = categories;
 	}
 
-
 	public Long getId() {
 		return id;
 	}
-
 
 	public void setId(Long id) {
 		this.id = id;
 	}
 
-
 	public String getName() {
 		return name;
 	}
-
 
 	public void setName(String name) {
 		this.name = name;
 	}
 
-
 	public Double getPrice() {
 		return price;
 	}
-
 
 	public void setPrice(Double price) {
 		this.price = price;
 	}
 
-
 	public Double getWeight() {
 		return weight;
 	}
-
 
 	public void setWeight(Double weight) {
 		this.weight = weight;
 	}
 
-
 	public String getDescription() {
 		return description;
 	}
-
 
 	public void setDescription(String description) {
 		this.description = description;
 	}
 
-
 	public String getImageName() {
 		return imageName;
 	}
-
 
 	public void setImageName(String imageName) {
 		this.imageName = imageName;
 	}
 
-
 	public Date getCreatedAt() {
 		return createdAt;
 	}
-
 
 	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
 
-
 	public Date getUpdatedAt() {
 		return updatedAt;
 	}
-
 
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
 
-
 	public List<Category> getCategories() {
 		return categories;
 	}
-
 
 	public void setCategories(List<Category> categories) {
 		this.categories = categories;

@@ -6,14 +6,18 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 import com.teressas.candyshop.models.Product;
+
 import com.teressas.candyshop.repositories.ProductRepository;
+
 
 @Service
 public class ProductService {
 	
 	@Autowired
 	ProductRepository productRepo;
+	
 	
 	// Add or edit a product
 	public Product saveProduct(Product product) {
@@ -36,14 +40,15 @@ public class ProductService {
 	}
 	
 	// Add category to product
-	public Product addCategoryToProduct(Product product) {
-		return productRepo.save(product);
-	}
-	
-	// Get product by category
-//	public List<Product> getAllProductsByCategoryId(Long id){
-//		return productRepo.findAllByCategory_Id(id);
+//	public Product addCategoryToProduct(Product product) {
+//		return productRepo.save(product);
 //	}
+	
+	// Find a list of products that match category id
+//	public List<Product> getAllProductsByCategory(Long category_id){
+//		return catprodRepo.findAllByCategoryId(category_id);
+//	}
+	
 	
 	// Delete product
 	public void removeProductById(Long id) {

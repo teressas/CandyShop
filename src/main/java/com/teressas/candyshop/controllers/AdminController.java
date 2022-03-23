@@ -28,7 +28,7 @@ import com.teressas.candyshop.services.ProductService;
 @Controller
 public class AdminController {
 	
-	// Java.lang.System class
+		// Java.lang.System class - for uploading files from local directory
 		public static String uploadDir = System.getProperty("user.dir") + "/src/main/resources/static/productImages/";
 
 		@Autowired
@@ -115,18 +115,21 @@ public class AdminController {
 		// process create new Product
 		@PostMapping("/admin/products/add")
 		public String createNewProduct(@Valid @ModelAttribute("newProduct") Product newProduct, BindingResult result,
-				Model model, @RequestParam("productImage") MultipartFile file, @RequestParam("imgName") String imgName)
+				Model model, 
+				@RequestParam("productImage") MultipartFile file, @RequestParam("imgName") String imgName)
 				throws IOException {
-
+			// set variable for image unique id
 			String imageUUID;
-
+			// if form has errors, return user to form
 			if (result.hasErrors()) {
 				List<Category> categories = catService.allCategories();
 				model.addAttribute("categories", categories);
 				return "newProductForm";
 			} else {
+				// show all categories
 				List<Category> categories = catService.allCategories();
 				model.addAttribute("categories", categories);
+				// if file input 
 				if (!file.isEmpty()) {
 					imageUUID = file.getOriginalFilename();
 					Path fileNameAndPath = Paths.get(uploadDir, imageUUID);
@@ -134,8 +137,10 @@ public class AdminController {
 				} else {
 					imageUUID = imgName;
 				}
+				
 				newProduct.setImageName(imageUUID);
 				prodService.saveProduct(newProduct);
+			
 				return "redirect:/admin/products";
 			}
 		}
